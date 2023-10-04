@@ -1,7 +1,13 @@
+import { Feedback } from "./Feedback"
+import style from "./Feedback.module.css"
+
 function App() {
   return (
     <div>
-      Hello
+      <p className={style.titleText}>
+        Please leave feedback
+      </p>
+      <Feedback />
     </div>
   );
 }
