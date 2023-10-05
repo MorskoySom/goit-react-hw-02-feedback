@@ -2,11 +2,15 @@ import { Component } from "react";
 import style from "./Feedback.module.css"
 
 export class Feedback extends Component {
-    state = {
-        good: 0,
-        neutral: 0,
-        bad: 0,
+    constructor(props) {
+        super(props);
+        this.state = {
+            good: 0,
+            neutral: 0,
+            bad: 0,
+        };
     }
+
     handleClickUpdate = (type) => {
         this.setState((prevState) => {
             return {
@@ -15,14 +19,14 @@ export class Feedback extends Component {
         })
     }
     handleClickGood = () => {
-        this.handleClickUpdate(`good`);
+        this.handleClickUpdate('good');
     }
 
     handleClickNeutral = () => {
-        this.handleClickUpdate(`neutral`);
+        this.handleClickUpdate('neutral');
     }
     handleClickBad = () => {
-        this.handleClickUpdate(`bad`);
+        this.handleClickUpdate('bad');
     }
     countTotalFeedback = () => {
         const total = this.state.good + this.state.neutral + this.state.bad;
@@ -32,7 +36,6 @@ export class Feedback extends Component {
         const percent = (this.state.good / (this.state.good + this.state.neutral + this.state.bad)) * 100;
         return percent > 0 ? ((this.state.good / (this.state.good + this.state.neutral + this.state.bad)) * 100).toFixed(2) : 0;
     }
-
 
     render() {
         return (
@@ -53,7 +56,6 @@ export class Feedback extends Component {
                     <p className={style.text}>Total : {this.countTotalFeedback()}</p>
                     <p className={style.text}>Percentage : {this.countPositiveFeedbackPercentage()} %</p>
                 </h2>
-
             </div>
         )
     }
