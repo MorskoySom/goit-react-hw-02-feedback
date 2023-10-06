@@ -1,5 +1,11 @@
-import style from "./Statistics.module.css"
+import React from "react";
 
-export const Section = (title) => {
-
+export const Section = ({ title, children }) => {
+    return (
+        <div>
+            <h2>{title}</h2>
+            {children}
+        </div>
+    );
 }
+

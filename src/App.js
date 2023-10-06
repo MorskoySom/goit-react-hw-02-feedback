@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Feedback } from "./Feedback/Feedback";
 import { Statistics } from "./Statistics/Statistics";
+import { Section } from "./Section/Section";
 
 class App extends Component {
   state = {
@@ -22,15 +23,19 @@ class App extends Component {
 
     return (
       <div>
-        <Feedback
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          handleClickUpdate={this.handleClickUpdate} />
-        <Statistics
-          good={good}
-          neutral={neutral}
-          bad={bad} />
+        <Section title="Please leave feedback">
+          <Feedback
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            handleClickUpdate={this.handleClickUpdate} />
+        </Section>
+        <Section title="Statistics">
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad} />
+        </Section>
       </div>
     );
   }
