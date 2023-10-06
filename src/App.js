@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Feedback } from "./Feedback/Feedback"; // Шлях до Feedback файлу
+import { Feedback } from "./Feedback/Feedback";
+import { Statistics } from "Statistics/Statistics";
 
 class App extends Component {
   state = {
@@ -11,7 +12,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Feedback state={this.state} />
+        <Feedback />
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad} />
       </div>
     );
   }
@@ -19,24 +24,3 @@ class App extends Component {
 
 export default App;
 
-
-// import { Feedback } from "Feedback/Feedback";
-// import { Component } from "react";
-
-// class App extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   }
-// }
-
-// function App() {
-//   return (
-//     <div>
-//       <Feedback state={this.state} />
-//     </div>
-//   );
-// }
-
-// export default App;
