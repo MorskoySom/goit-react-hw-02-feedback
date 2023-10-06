@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Feedback } from "./Feedback/Feedback";
 import { Statistics } from "./Statistics/Statistics";
 import { Section } from "./Section/Section";
+import { Notification } from "./Notification/Notification"
 
 class App extends Component {
   state = {
@@ -30,16 +31,21 @@ class App extends Component {
             bad={bad}
             handleClickUpdate={this.handleClickUpdate} />
         </Section>
-        <Section title="Statistics">
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad} />
-        </Section>
+        {(good + neutral + bad) > 0 ? (
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad} />
+          </Section>
+        ) : (
+          <Section title="Statistics">
+            <Notification />
+          </Section>
+        )}
       </div>
     );
   }
 }
 
 export default App;
-
