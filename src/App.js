@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Feedback } from "./Feedback/Feedback";
-import { Statistics } from "Statistics/Statistics";
+import { Statistics } from "./Statistics/Statistics";
 
 class App extends Component {
   state = {
@@ -9,14 +9,28 @@ class App extends Component {
     bad: 0,
   }
 
+  handleClickUpdate = (type) => {
+    this.setState((prevState) => {
+      return {
+        [type]: prevState[type] + 1,
+      }
+    })
+  }
+
   render() {
+    const { good, neutral, bad } = this.state;
+
     return (
       <div>
-        <Feedback />
+        <Feedback
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          handleClickUpdate={this.handleClickUpdate} />
         <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad} />
+          good={good}
+          neutral={neutral}
+          bad={bad} />
       </div>
     );
   }

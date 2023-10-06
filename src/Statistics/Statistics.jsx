@@ -1,5 +1,5 @@
-import style from "./Statistics.module.css"
-
+import React from "react";
+import style from "./Statistics.module.css";
 
 export const Statistics = ({ good, neutral, bad }) => {
     const countTotalFeedback = () => {
@@ -25,3 +25,5 @@ export const Statistics = ({ good, neutral, bad }) => {
         </div>
     );
 }
+
+
