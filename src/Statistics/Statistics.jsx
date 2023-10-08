@@ -1,16 +1,7 @@
 import React from "react";
 import style from "./Statistics.module.css";
 
-export const Statistics = ({ good, neutral, bad }) => {
-    const countTotalFeedback = () => {
-        const total = good + neutral + bad;
-        return total;
-    }
-
-    const countPositiveFeedbackPercentage = () => {
-        const percent = (good / (good + neutral + bad)) * 100;
-        return percent > 0 ? ((good / (good + neutral + bad)) * 100).toFixed(2) : 0;
-    }
+export const Statistics = ({ good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage }) => {
 
     return (
         <div>
@@ -22,5 +13,4 @@ export const Statistics = ({ good, neutral, bad }) => {
         </div>
     );
 }
-
 
