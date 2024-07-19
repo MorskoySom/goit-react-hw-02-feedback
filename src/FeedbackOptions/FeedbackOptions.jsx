@@ -6,7 +6,7 @@ export const Feedback = ({ options, handleClickUpdate }) => {
         <div>
             <div className={style.buttonRow}>
                 {options.map(option => (
-                    <button key={option} onClick={() => handleClickUpdate(option)}>
+                    <button key={option} className={`${style.col} ${style[option]}`} onClick={() => handleClickUpdate(option)}>
                         {option}
                     </button>
                 ))}
